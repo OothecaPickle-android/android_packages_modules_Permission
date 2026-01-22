@@ -754,7 +754,13 @@ suspend fun isPackageHibernationExemptBySystem(
         return true
     }
 
-    return false
+    if (DEBUG_HIBERNATION_POLICY) {
+        DumpableLog.i(
+            LOG_TAG,
+            "Exempted ${pkg.packageName} - app hibernation is disabled on this system"
+        )
+    }
+    return true
 }
 
 /**
